@@ -1,0 +1,8 @@
+file 'static/ai1.jpg'
+duration 1    
+file 'static/ai2.jpg'
+duration 1    
+file 'static/ai3.jpg'
+duration 1    
+file 'static/ai4.jpg'
+duration 2    

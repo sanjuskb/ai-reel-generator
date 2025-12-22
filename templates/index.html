@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}AI Reel Generator{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="container">
+        <h1 class="hero-title gradient-text">
+            Create AI-Powered Reels in Minutes
+        </h1>
+
+        <p class="hero-subtitle">
+            Upload images, add text, and AI converts your text into voice and
+            generates a complete Instagram-ready reel automatically.
+        </p>
+
+        <a href="/create" class="cta-button">Create Reel</a>
+    </div>
+</section>
+
+<section class="home-preview-section">
+    <div class="container">
+        <h3 class="preview-title">Sample AI Reel Frames</h3>
+
+        <div class="preview-grid">
+            <img src="{{ url_for('static', filename='1.jpg') }}" alt="Sample 1">
+            <img src="{{ url_for('static', filename='2.jpg') }}" alt="Sample 2">
+            <img src="{{ url_for('static', filename='3.jpg') }}" alt="Sample 3">
+            <img src="{{ url_for('static', filename='4.jpg') }}" alt="Sample 4">
+            <img src="{{ url_for('static', filename='5.jpg') }}" alt="Sample 5">
+        </div>
+    </div>
+</section>
+
+
+<section class="container mt-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="glass-card">
+                <h4>🖼 Upload Images</h4>
+                <p>Each image becomes a 1-minute reel segment.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="glass-card">
+                <h4>🗣 Text to Voice</h4>
+                <p>Your text is converted into AI voice.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="glass-card">
+                <h4>🎬 Auto Reel</h4>
+                <p>Images + voice stitched into a reel.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+ 

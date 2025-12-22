@@ -1,0 +1,114 @@
+.upload-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.upload-glass {
+    max-width: 720px;
+    margin: auto;
+    padding: 3rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(18px);
+    border-radius: 22px;
+    text-align: center;
+}
+
+.upload-subtitle {
+    color: #a1a1b5;
+    margin-bottom: 2rem;
+}
+
+.file-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.file-input {
+    flex: 1;
+    background: rgba(0,0,0,0.3);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 12px;
+    padding: .6rem;
+}
+
+.add-file-btn {
+    background: transparent;
+    color: #3bdcff;
+    border: 1px dashed #3bdcff;
+    border-radius: 999px;
+    padding: .6rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.text-input {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0,0,0,0.3);
+    color: white;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.25);
+    margin-bottom: 2rem;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 999px;
+    border: none;
+    font-weight: 700;
+    font-size: 1.25rem;
+    background: linear-gradient(135deg, #3bdcff, #a855f7);
+    box-shadow: 0 0 13px rgba(168,85,247,.7);
+}
+
+.remove-file-btn {
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+}
+.file-status {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background: #ff3b3b;
+    color: white;
+    flex-shrink: 0;
+}
+
+.file-status.ok {
+    background: #22c55e;
+}
+/* ================= RIPPLE EFFECT ================= */
+.submit-btn {
+    position: relative;
+    overflow: hidden; /* REQUIRED for ripple */
+}
+
+/* Ripple circle */
+.submit-btn .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: rippleAnim 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes rippleAnim {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+

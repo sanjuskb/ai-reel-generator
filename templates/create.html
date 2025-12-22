@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block title %}Create Reel{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/create.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="upload-section">
+    <div class="container">
+        <div class="upload-glass">
+
+            <h1 class="upload-title gradient-text">Create Your AI Reel</h1>
+            <p class="upload-subtitle">
+                Upload images, add text, and let AI convert text into voice and generate your reel.
+            </p>
+            <form action="/create" method="post" enctype="multipart/form-data">
+
+                <!-- FILE INPUTS -->
+                <div id="fileInputs">
+
+                    <!-- FIRST FILE -->
+                    <div class="file-input-group">
+                        <input name="file1"
+                               type="file"
+                               class="file-input"
+                               required
+                               onchange="updateStatus(this)">
+
+                        <input type="hidden" name="uuid" value="{{ myid }}">
+
+                        <span class="file-status">✖</span>
+                    </div>
+
+                </div>
+
+                <!-- ADD IMAGE BUTTON -->
+                <button type="button"
+                        class="add-file-btn"
+                        onclick="addFileInput()">
+                    + Add Image
+                </button>
+
+                <!-- TEXT INPUT -->
+                <textarea name="text"
+                          class="text-input"
+                          placeholder="Enter text to convert into voice..."></textarea>
+
+                <!-- SUBMIT -->
+                <button type="submit" class="submit-btn">
+                    Generate Reel
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    
+
+let fileCounter = 2;
+
+function addFileInput() {
+    const div = document.createElement("div");
+    div.className = "file-input-group";
+
+    div.innerHTML = `
+        <input name="file${fileCounter}"
+               type="file"
+               class="file-input"
+               onchange="updateStatus(this)">
+        <span class="file-status">✖</span>
+    `;
+
+    document.getElementById("fileInputs").appendChild(div);
+    fileCounter++;
+}
+
+function updateStatus(input) {
+    // find the status icon INSIDE the same group
+    const group = input.closest(".file-input-group");
+    const status = group.querySelector(".file-status");
+
+    if (input.files && input.files.length > 0) {
+        status.textContent = "✔";
+        status.classList.add("ok");
+    } else {
+        status.textContent = "✖";
+        status.classList.remove("ok");
+    }
+}
+</script>
+<script>
+/* Ripple effect for buttons */
+document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".submit-btn");
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", function (e) {
+            const rect = btn.getBoundingClientRect();
+
+            const ripple = document.createElement("span");
+            ripple.className = "ripple";
+
+            ripple.style.left = `${e.clientX - rect.left}px`;
+            ripple.style.top = `${e.clientY - rect.top}px`;
+            ripple.style.width = ripple.style.height = `${Math.max(rect.width, rect.height)}px`;
+
+            btn.appendChild(ripple);
+
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
+});
+</script>
+
+
+{% endblock %}
+

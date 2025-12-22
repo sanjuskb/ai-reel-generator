@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Reel Gallery{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/gallery.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="gallery-section">
+    <div class="container">
+        <h1 class="gallery-title premium-heading">
+        Your Generated Reels
+    </h1>
+
+
+        <div class="gallery-grid">
+            {% for reel in reels %}
+            <div class="reel-card">
+                <video src="/static/reels/{{ reel }}" controls></video>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
